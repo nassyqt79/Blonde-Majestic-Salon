@@ -595,6 +595,55 @@
       display: block;
     }
 
+    /* Service Showcase Images */
+    .service-showcase {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .service-showcase {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .showcase-card {
+      background: var(--white);
+      border-radius: 0.8rem;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .showcase-image-container {
+      width: 100%;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .showcase-caption {
+      padding: 1.5rem;
+      text-align: center;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 992px) {
       section {
@@ -703,6 +752,11 @@
         padding: 1.2rem;
       }
 
+      /* Service showcase adjustments */
+      .showcase-image-container {
+        height: 200px;
+      }
+
       /* Modal adjustments for mobile */
       .modal-content {
         max-width: 95%;
@@ -767,6 +821,11 @@
         padding: 1.5rem;
       }
       
+      /* Service showcase adjustments */
+      .showcase-image-container {
+        height: 160px;
+      }
+      
       /* Prevent overflow on small screens */
       body, html {
         overflow-x: hidden;
@@ -826,6 +885,11 @@
       
       .testimonial-text {
         font-size: 0.9rem;
+      }
+      
+      /* Service showcase adjustments */
+      .showcase-image-container {
+        height: 140px;
       }
     }
 </style>
@@ -1175,13 +1239,31 @@
   <div class="container">
     <h2>Client Testimonials</h2>
     
+    <!-- Service Showcase Images -->
+    <!-- In your testimonials section, replace the service-showcase div with this corrected version: -->
+<div class="service-showcase">
+  <div class="showcase-card" data-image="image/overall.jpeg">
+    <div class="showcase-image-container">
+      <img src="image/overall.jpeg" alt="Our Nail Services" class="showcase-image" loading="lazy">
+    </div>
+    <div class="showcase-caption">Our Premium Nail Services</div>
+  </div>
+  
+  <div class="showcase-card" data-image="image/all service.jpeg">
+    <div class="showcase-image-container">
+      <img src="image/all service.jpeg" alt="Our Hair Services" class="showcase-image" loading="lazy">
+    </div>
+    <div class="showcase-caption">Professional Hair Services</div>
+  </div>
+</div>
+    
     <div class="testimonials-grid">
       <div class="testimonial-card" data-image="image/image1.jpeg">
         <div class="testimonial-image-container">
           <img src="image/image1.jpeg" alt="Florence Nacionales testimonial" class="testimonial-image" loading="lazy">
         </div>
         <div class="testimonial-content">
-          <div class="testimonial-text">I had such a fantastic experience at The Blonde Majestic Salon. Ate Jopay did an exceptional job on my nails. It's my first time having nails like this tho. Yet, her attention to detail and expertise truly stood out. More than that, she ... More</div>
+          <div class="testimonial-text">"I had such a fantastic experience at The Blonde Majestic Salon. Ate Jopay did an exceptional job on my nails. It's my first time having nails like this tho. Yet, her attention to detail and expertise truly stood out. More than that, she ... More"</div>
           <div class="testimonial-meta">
             <div class="testimonial-author">Florence Nacionales</div>
             <div class="testimonial-date">★★★★★ 4 months ago</div>
@@ -1194,7 +1276,7 @@
           <img src="image/image3.jpeg" alt="Harshita Jain testimonial" class="testimonial-image" loading="lazy">
         </div>
         <div class="testimonial-content">
-          <div class="testimonial-text">Hi, this is Inaaya Fatima. Thank you so much Elma. She did my nails and it was a wonderful experience. She is an expert in nails and gave a minimalist look. And I always love the ambience</div>
+          <div class="testimonial-text">"Hi, this is Inaaya Fatima. Thank you so much Elma. She did my nails and it was a wonderful experience. She is an expert in nails and gave a minimalist look. And I always love the ambience"</div>
           <div class="testimonial-meta">
             <div class="testimonial-author">Harshita Jain</div>
             <div class="testimonial-date">★★★★★ a month ago</div>
@@ -1207,9 +1289,9 @@
           <img src="image/image4.jpeg" alt="Norlyn Decano testimonial" class="testimonial-image" loading="lazy">
         </div>
         <div class="testimonial-content">
-          <div class="testimonial-text">Thank you ate Elma and Pan with my hair and nails</div>
+          <div class="testimonial-text">"Thank you ate Elma and Pan with my hair and nails"</div>
           <div class="testimonial-meta">
-            <div class="testimonial-author">Norlyn Decano</div>
+            <div class="testimonial-author">Norlyn Decano 3 reviews </div>
             <div class="testimonial-date">★★★★★ 5 months ago</div>
           </div>
         </div>
@@ -1220,7 +1302,7 @@
           <img src="image/image2.jpeg" alt="Emmie Gresola testimonial" class="testimonial-image" loading="lazy">
         </div>
         <div class="testimonial-content">
-          <div class="testimonial-text">Great place to spend me time and pampering, all staff are accommodating especially Merly, Rosie, and Delhia. They are giving free coffee to relax while doing their services. Surely to come back and recommend. Worth the price as well they have a lot of promos ongoing</div>
+          <div class="testimonial-text">"Great place to spend me time and pampering, all staff are accommodating especially Merly, Rosie, and Delhia. They are giving free coffee to relax while doing their services. Surely to come back and recommend. Worth the price as well they have a lot of promos ongoing"</div>
           <div class="testimonial-meta">
             <div class="testimonial-author">Emmie Gresola</div>
             <div class="testimonial-date">★★★★★ 2 weeks ago</div>
@@ -1272,6 +1354,8 @@
   </div>
 </footer>
 
-<script src="Js/index.js"></SCript>
+<script src="Js/index.js"></script>
+
+
 </body>
 </html>
