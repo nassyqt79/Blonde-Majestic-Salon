@@ -1,6 +1,4 @@
-
-
-  const burger = document.getElementById('burger');
+ const burger = document.getElementById('burger');
   const navLinks = document.getElementById('nav-links');
   const overlay = document.getElementById('overlay');
 
@@ -162,13 +160,28 @@
   const modalImg = document.getElementById('modalImage');
   const closeBtn = document.getElementsByClassName('close')[0];
   const testimonialCards = document.querySelectorAll('.testimonial-card');
+  const showcaseCards = document.querySelectorAll('.showcase-card');
 
+  // Function to open modal with clicked image
+  function openModal(imageSrc) {
+    modalImg.src = imageSrc;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Add click event to testimonial cards
   testimonialCards.forEach(card => {
     card.addEventListener('click', function() {
       const imageSrc = this.getAttribute('data-image');
-      modalImg.src = imageSrc;
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden';
+      openModal(imageSrc);
+    });
+  });
+
+  // Add click event to showcase cards
+  showcaseCards.forEach(card => {
+    card.addEventListener('click', function() {
+      const imageSrc = this.getAttribute('data-image');
+      openModal(imageSrc);
     });
   });
 
