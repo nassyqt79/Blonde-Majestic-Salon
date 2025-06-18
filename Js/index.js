@@ -1,4 +1,4 @@
- const burger = document.getElementById('burger');
+  const burger = document.getElementById('burger');
   const navLinks = document.getElementById('nav-links');
   const overlay = document.getElementById('overlay');
 
@@ -161,6 +161,7 @@
   const closeBtn = document.getElementsByClassName('close')[0];
   const testimonialCards = document.querySelectorAll('.testimonial-card');
   const showcaseCards = document.querySelectorAll('.showcase-card');
+  const galleryItems = document.querySelectorAll('.gallery-item');
 
   // Function to open modal with clicked image
   function openModal(imageSrc) {
@@ -180,6 +181,14 @@
   // Add click event to showcase cards
   showcaseCards.forEach(card => {
     card.addEventListener('click', function() {
+      const imageSrc = this.getAttribute('data-image');
+      openModal(imageSrc);
+    });
+  });
+
+  // Add click event to gallery items
+  galleryItems.forEach(item => {
+    item.addEventListener('click', function() {
       const imageSrc = this.getAttribute('data-image');
       openModal(imageSrc);
     });
