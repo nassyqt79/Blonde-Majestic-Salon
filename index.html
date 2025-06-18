@@ -508,6 +508,51 @@
       line-height: 1.8;
     }
 
+    /* Gallery Section in About */
+    .about-gallery {
+      margin: 3rem auto;
+      max-width: 1200px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: var(--transition);
+      aspect-ratio: 1/1;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -596,18 +641,23 @@
     }
 
     /* Service Showcase Images */
-    .service-showcase {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    @media (min-width: 768px) {
       .service-showcase {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+  }
+  
+  .showcase-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    .showcase-image-container {
+      height: 250px !important;
     }
+  }
 
     .showcase-card {
       background: var(--white);
@@ -891,6 +941,8 @@
       .showcase-image-container {
         height: 140px;
       }
+
+      
     }
 </style>
 </head>
@@ -931,12 +983,42 @@
     <h2>About Us</h2>
     <p>Blonde Majestic Ladies Salon offers premium beauty services including hair, nails, facial, massage, and waxing.
        Open daily from 10:00 AM to 10:00 PM. Located at Hadi plaza 103 same building westzone next to ibis hotel alrigga muraqqabat deira dubai.</p>
+    
+    <!-- Gallery Section -->
+    <div class="about-gallery">
+      <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 1rem;">Our Salon Gallery</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-image="image/salon-interior.webp">
+          <img src="image/salon-interior.webp" alt="Salon Interior" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" data-image="image/nail-staion1.webp">
+          <img src="image/nail-staion1.webp" alt="Nail Station" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" data-image="image/nail.webp">
+          <img src="image/nail.webp" alt="Hair Station" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" data-image="image/relax-area.webp">
+          <img src="image/relax-area.webp" alt="Relaxation Area" class="gallery-image" loading="lazy">
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="services" class="fade-in">
   <div class="container">
     <h2>Our Services</h2>
+    
+    <!-- Modified service showcase with only one image -->
+    <div class="service-showcase">
+  <div class="showcase-card" data-image="image/all service.jpeg" style="max-width: 500px; margin: 0 auto; width: 100%;">
+    <div class="showcase-image-container" style="height: 200px;">
+      <img src="image/all service.jpeg" alt="Our Hair Services" class="showcase-image" loading="lazy">
+    </div>
+    <div class="showcase-caption">Professional Hair Services</div>
+  </div>
+</div>
+    
     <div class="services-slider">
       <button class="slider-arrow prev" aria-label="Previous">&lt;</button>
       <button class="slider-arrow next" aria-label="Next">&gt;</button>
@@ -1219,6 +1301,19 @@
             </div>
           </div>
         </div>
+        
+        <!-- SERVICES LIST IMAGE -->
+        <div class="service-category">
+          <h3>Complete Services List</h3>
+          <div class="service-items" style="display: flex; justify-content: center;">
+            <div class="showcase-card" data-image="image/services-list.jpeg" style="max-width: 500px;">
+              <div class="showcase-image-container">
+                <img src="image/services-list.jpeg" alt="Professional Blonde-majestic Salon Services list" class="showcase-image" loading="lazy">
+              </div>
+              <div class="showcase-caption">Click to view full services list</div>
+            </div>
+          </div>
+        </div>
       </div>
       
       <div class="slider-nav">
@@ -1229,6 +1324,7 @@
           <div class="dot" data-index="3"></div>
           <div class="dot" data-index="4"></div>
           <div class="dot" data-index="5"></div>
+          <div class="dot" data-index="6"></div>
         </div>
       </div>
     </div>
@@ -1238,26 +1334,6 @@
 <section id="testimonials" class="fade-in">
   <div class="container">
     <h2>Client Testimonials</h2>
-    
-    <!-- Service Showcase Images -->
-    <!-- In your testimonials section, replace the service-showcase div with this corrected version: -->
-<div class="service-showcase">
-  <div class="showcase-card" data-image="image/overall.jpeg">
-    <div class="showcase-image-container">
-      <img src="image/overall.jpeg" alt="Our Nail Services" class="showcase-image" loading="lazy">
-    </div>
-    <div class="showcase-caption">Blonde Majestic Ladies Salon Offers.
-
-</div>
-  </div>
-  
-  <div class="showcase-card" data-image="image/all service.jpeg">
-    <div class="showcase-image-container">
-      <img src="image/all service.jpeg" alt="Our Hair Services" class="showcase-image" loading="lazy">
-    </div>
-    <div class="showcase-caption">Professional Blonde-majestic Salon Services list</div>
-  </div>
-</div>
     
     <div class="testimonials-grid">
       <div class="testimonial-card" data-image="image/image1.jpeg">
@@ -1337,7 +1413,7 @@
       <a href="https://wa.me/971505799758" class="whatsapp-btn">Book Now via WhatsApp</a>
 
       <div class="social-links">
-        <a href="https://facebook.com/blondemajestic" class="social-link" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.facebook.com/share/16YDnBeUqn/?mibextid=wwXIfr" class="social-link" target="_blank" rel="noopener noreferrer">
           <span class="social-icon"><i class="fa-brands fa-facebook-f"></i></span>
           <span>Facebook</span>
         </a>
@@ -1349,15 +1425,11 @@
     </div>
   </div>
 </section>
-
 <footer class="fade-in">
   <div class="container">
     <p>&copy; 2025 Blonde Majestic Ladies Salon</p>
   </div>
 </footer>
-
-<script src="Js/index.js"></script>
-
-
 </body>
 </html>
+<script src="Js/index.js"></script>
